@@ -1,62 +1,43 @@
-# Convertor Private Key Cryptocurrency
+# Plataforma Delivery de Bebidas (Mobile + Backend)
 
-![](https://raw.githubusercontent.com/Pymmdrza/Convertor_PrivateKey/mainx/img/100M_PrivateKey_Convertor_Nov-2022.jpg 'Convertor private key blockchain atomic')
+## Visão geral
+Projeto base com arquitetura profissional para app mobile de delivery de adegas com 4 perfis (Cliente, Adega, Entregador, Admin).
 
+## Estrutura
+- `mobile/` app React Native/Expo (Android e iOS)
+- `backend/` API Node.js/Express
+- `backend/db/migrations` migrations PostgreSQL
 
-For all Wallet (Bitcoin, Ethereum , TRON, Litecoin, Dogecoin, Dash, ZCASH, BitcoinGold)
+## Funcionalidades já implementadas (base funcional backend)
+- Auth com cadastro/login/refresh token JWT
+- Proteção de rotas
+- Criação e listagem de pedidos
+- Regras financeiras fixas:
+  - Adega 90% do subtotal
+  - Plataforma 10%
+  - Entregador 100% da taxa de entrega
+- Geração de código de retirada (5 dígitos) e entrega (5 dígitos)
 
-All Convertor Private key (HEX) To Address Wallet Bitcoin
-
-- Download 100,000,000 (100 M) Private Key (HEX) on Text File 6 GB Compressed 2.9 GB Ready For [Download Here](https://github.com/Pymmdrza/Convertor_PrivateKey/edit/mainx/README.md#download-private-key-wallet-list)
-
-- Convert Private Key (HEX) to P2PKH Address (Bitcoin Wallet) Check From Blockchain Balance : [Convertor_Blockchain.py](https://github.com/Pymmdrza/Convertor_PrivateKey/blob/mainx/Convertor_Blockchain.py 'Convertor Private Key and Checker from Blockchain Balance')
-
-- Convert Private Key (HEX) To Address P2PKH (Bitcoin Wallet) Check From Atomic Wallet : [Convertor_Atomic.py](https://github.com/Pymmdrza/Convertor_PrivateKey/blob/mainx/Convertor_Atomic.py 'Convertor Private Key Bitcoin To Address Wallet Check Balance From Atomic wallet')
-
-For running first install package's :
-
-Windows:
-
-```
-pip install bit
-pip install requests
-
-```
-
-Linux:
-
-```
-pip3 install bit
-
+## Rodar backend
+```bash
+cd backend
+npm install
+npm run dev
 ```
 
+## Endpoints
+- `POST /api/v1/auth/register`
+- `POST /api/v1/auth/login`
+- `POST /api/v1/auth/refresh`
+- `POST /api/v1/orders` (Bearer token)
+- `GET /api/v1/orders` (Bearer token)
 
-- Convertor Private Key To Ethereum Address wallet Check From atomic wallet : [Convertor_ETH_Atomic.py](https://github.com/Pymmdrza/Convertor_PrivateKey/blob/mainx/Convertor_ETH_Atomic.py 'Convertor Private Key To Ethereum Address wallet Check From atomic wallet')
-
-For running first install package's :
-
-Windows:
-
-```
-pip install lxml
-pip install hdwallet
-pip install fake-useragent
-
-```
-
-Linux:
-
-```
-pip3 install hdwallet&&pip3 install lxml&&pip3 install fake-useragent
-
-```
-
-### **Download Private Key Wallet List:**
-
-100M Private Key November 2022 [ZIP] [Compressed] [Size : 2.96 GB] [Mega][ Download ](https://mega.nz/file/WIEzgYDL#YZkL3he7jGKurXJHVBwQkQr0lJ5Xn9Sp1YaX-n9_8Tk)
-
-100M Private Key November 2022 [ZIP] [Compressed] [Size : 2.96 GB] [Google – Firebase] [ Download ](https://firebasestorage.googleapis.com/v0/b/mmdrza-2dbc3.appspot.com/o/PrivateKey_10M_Nov_2022.zip?alt=media&token=0acc642d-e61b-4629-9751-6935e5e79a4f)
-
-100M Private Key November 2022 [ZIP] [Compressed] [Size : 2.96 GB] [Google Drive ][ Download ](https://drive.google.com/file/d/1JgJdumKj0kkXb0oNLV68QFXSeIttFXRU/view?usp=sharing)
-
-Read More Detail's from [this Post](https://mmdrza.com/100000000-private-key-hex-without-repeat-6gb/ '100000000 Private Key Hex Without Repeat')
+## Próximos módulos (já previstos na arquitetura)
+- WebSocket de rastreio em tempo real
+- Integração Asaas (Pix/cartão)
+- Upload S3/R2
+- FCM push por perfil
+- Antifraude com GPS/IP/device
+- Chat interno com mídia
+- Carteira com saque mínimo e limite 1/dia
+- Observabilidade, backup e dashboard premium
