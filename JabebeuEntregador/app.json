@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "Jabebeu Entregador",
+    "slug": "jabebeu-entregador",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "jabebeu-entregador",
+    "plugins": [
+      "expo-location"
+    ],
+    "ios": {
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Precisamos da sua localização para corridas em tempo real.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Precisamos da sua localização em segundo plano para rastrear corridas em andamento."
+      }
+    },
+    "android": {
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION"
+      ],
+      "package": "com.jabebeu.entregador"
+    },
+    "extra": {
+      "apiBaseUrl": "https://api.jabebeu.com"
+    }
+  }
+}
