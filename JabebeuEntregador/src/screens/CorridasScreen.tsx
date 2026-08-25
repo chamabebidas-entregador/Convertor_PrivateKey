@@ -25,7 +25,9 @@ export default function CorridasScreen() {
   const progressStatus = async () => {
     if (!activeRide) return;
     const currentIndex = STATUS_FLOW.findIndex(s => s === activeRide.status);
-    const nextStatus = STATUS_FLOW[Math.max(0, currentIndex + 1)];
+    const nextStatus = STATUS_FLOW[currentIndex + 1];
+
+    if (!nextStatus) return;
 
     if (nextStatus === 'ENTREGUE' && !confirmationCode) {
       Alert.alert('Código obrigatório', 'Informe o código de confirmação do cliente.');
@@ -50,7 +52,11 @@ export default function CorridasScreen() {
             onChangeText={setConfirmationCode}
             style={{ borderWidth: 1, borderRadius: 8, padding: 10 }}
           />
-          <Button title="Avançar status" onPress={progressStatus} />
+          <Button
+            title="Avançar status"
+            onPress={progressStatus}
+            disabled={activeRide.status === 'ENTREGUE'}
+          />
         </View>
       ) : (
         <FlatList
